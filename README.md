@@ -14,5 +14,6 @@ The core components of **O1-CODER** are:
 2. **Self-Play and Reinforcement Learning**: The model generates reasoning data through self-play, and uses RL and MCTS to iteratively optimize the policy model。
 These methods work in an iterative cycle, continuously refining the model to improve systematic reasoning and optimization in coding tasks.
 
-Self-Play+RL-based Coder Training Framework
-![Self-Play+RL-based Coder Training Framework](assets/algo.jpeg)
+<div align="center">
+  <img src="assets/algo.jpeg" width="600" />
+</div>
