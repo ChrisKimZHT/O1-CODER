@@ -1,6 +1,5 @@
 # O1-CODER
-[O1-CODER: An O1 Replication for Coding (PDF)](PDF/o1-Coder.pdf)
-
+[O1-CODER: An O1 Replication for Coding (Paper)](https://arxiv.org/abs/2412.00154)
 
 ## Overview
 
