@@ -16,3 +16,22 @@ These methods work in an iterative cycle, continuously refining the model to imp
 <div align="center">
   <img src="assets/algo.jpeg" width="600" />
 </div>
+
+## News
+
+### Latest Updates
+
+#### - 2024-12-07
+- Updated the training code for the process reward model and Test Case Generator.
+- Updated the MCTS-based data synthesis code for O1-CODER [in progress].
+
+#### - 2024-12-01
+- Updated the technical report for O1-CODER.
+
+---
+
+### Planned Updates
+
+TODO: Reinforcement Learning code
+
+TODO: Curated datasets and derived models
