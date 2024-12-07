@@ -1,0 +1,344 @@
+[
+    {
+        "4": {
+            "node_id": 17,
+            "ost_step": "### Step 4: **Generating Python Code (Action 3)**\n\n#### Goal:\nTranslate the refined pseudocode for both the `encode` and `decode` functions into executable Python code. \n\n#### Python Code:\n```python\ndef encode(input_string):\n    # Mapping of vowels to numbers\n    vowels_to_numbers = {'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5'}\n    result = \"\"\n    # Iterate over each character in the input string\n    for character in input_string:\n        # Replace vowel with corresponding number or keep the character\n        result += vowels_to_numbers.get(character, character)\n    return result\n\ndef decode(input_string):\n    # Mapping of numbers to vowels\n    numbers_to_vowels = {'1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u'}\n    result = \"\"\n    # Iterate over each character in the input string\n    for character in input_string:\n        # Replace number with corresponding vowel or keep the character\n        result += numbers_to_vowels.get(character, character)\n    return result\n\n# Example usage\nprint(encode(\"hello\"))  # Output: \"h2ll4\"\nprint(decode(\"h3 th2r2\"))  # Output: \"hi there\"\n```\n\n**Explanation:**\n- The `encode` function creates a mapping of lowercase vowels to numbers and iterates through the `input_string`, replacing each vowel with its corresponding number using the `.get()` method of the dictionary.\n- The `decode` function similarly creates a mapping of numbers to vowels and replaces each number in the `input_string` with its corresponding vowel.\n- Both functions return the modified string after processing all characters.",
+            "step_value": 1.0,
+            "edges": [
+                14,
+                17
+            ]
+        },
+        "3": {
+            "node_id": 14,
+            "ost_step": "### Step 3: **Refining the `decode` Function (Action 2)**\n\n#### Goal:\nAdd details to the `decode` function to specify how each number will be replaced with its corresponding vowel using the defined mapping.\n\n#### Pseudocode:\n```pseudo\nFunction decode(input_string):\n    Define a mapping dictionary: numbers_to_vowels = {'1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u'}\n    Initialize an empty result string: result = \"\"\n    For each character in input_string:\n        If character is in numbers_to_vowels:\n            Append numbers_to_vowels[character] to result\n        Else:\n            Append character to result\n    Return result\n```\n\n**Explanation:**\n- We create a dictionary `numbers_to_vowels` that maps each number to its corresponding vowel.\n- We iterate through each character in `input_string`.\n- If a character is found in the dictionary, we replace it with its corresponding vowel.\n- Otherwise, we append the original character to the result.\n- The function finally returns the transformed string.",
+            "step_value": 1.0,
+            "edges": [
+                11,
+                14
+            ]
+        },
+        "2": {
+            "node_id": 11,
+            "ost_step": "### Step 2: **Refining the `encode` Function (Action 2)**\n\n#### Goal:\nAdd details to the `encode` function to specify how each vowel will be replaced with its corresponding number using the defined mapping.\n\n#### Pseudocode:\n```pseudo\nFunction encode(input_string):\n    Define a mapping dictionary: vowels_to_numbers = {'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5'}\n    Initialize an empty result string: result = \"\"\n    For each character in input_string:\n        If character is in vowels_to_numbers:\n            Append vowels_to_numbers[character] to result\n        Else:\n            Append character to result\n    Return result\n```\n\n**Explanation:**\n- We create a dictionary `vowels_to_numbers` that maps each vowel to its corresponding number.\n- We iterate through each character in `input_string`.\n- If a character is found in the dictionary, we replace it with its corresponding number.\n- Otherwise, we append the original character to the result.\n- The function finally returns the transformed string.",
+            "step_value": 1.0,
+            "edges": [
+                1,
+                11
+            ]
+        },
+        "1": {
+            "node_id": 1,
+            "ost_step": "**Defining High-Level Structure (Action 1)**\n\n#### Goal:\nDefine the structure of the `encode` and `decode` functions. Each function will perform string transformations based on the given pattern.\n\n1. `encode` function:\n   - Replace vowels with corresponding numbers.\n2. `decode` function:\n   - Replace numbers with corresponding vowels.\n\n#### Pseudocode:\n```pseudo\nFunction encode(input_string):\n    Create a mapping of vowels to numbers\n    Initialize an empty result string\n    For each character in input_string:\n        If character is a vowel, append corresponding number to result\n        Else, append character itself to result\n    Return the result string\n\nFunction decode(input_string):\n    Create a mapping of numbers to vowels\n    Initialize an empty result string\n    For each character in input_string:\n        If character is a number, append corresponding vowel to result\n        Else, append character itself to result\n    Return the result string\n```",
+            "step_value": 1.0,
+            "edges": [
+                0,
+                1
+            ]
+        },
+        "0": {
+            "node_id": 0,
+            "question": "**Step 1:** Create a function called `encode()` to replace all the lowercase vowels in a given string with numbers according to the following pattern:\n```\na -> 1\ne -> 2\ni -> 3\no -> 4\nu -> 5\n```\n\nFor example, `encode(\"hello\")` would return `\"h2ll4\"`. There is no need to worry about uppercase vowels in this kata.\n\n**Step 2:** Now create a function called `decode()` to turn the numbers back into vowels according to the same pattern shown above.\n\nFor example, `decode(\"h3 th2r2\")` would return `\"hi there\"`.\n\nFor the sake of simplicity, you can assume that any numbers passed into the function will correspond to vowels."
+        }
+    },
+    {
+        "4": {
+            "node_id": 29,
+            "ost_step": "### Step 4: **Implementing Python Code for `encode` and `decode` (Action 3)**\n\n#### Goal:\nTranslate the refined pseudocode into Python code for both the `encode` and `decode` functions.\n\n#### Python Code:\n\n```python\ndef encode(input_string):\n    # Mapping vowels to corresponding numbers\n    vowels_to_numbers = {'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5'}\n    result = \"\"\n    \n    # Iterate through each character in the input string\n    for char in input_string:\n        # If the character is a vowel, replace it with the corresponding number\n        if char in vowels_to_numbers:\n            result += vowels_to_numbers[char]\n        else:\n            # Otherwise, keep the character as is\n            result += char\n    \n    return result\n\ndef decode(input_string):\n    # Mapping numbers to corresponding vowels\n    numbers_to_vowels = {'1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u'}\n    result = \"\"\n    \n    # Iterate through each character in the input string\n    for char in input_string:\n        # If the character is a number, replace it with the corresponding vowel\n        if char in numbers_to_vowels:\n            result += numbers_to_vowels[char]\n        else:\n            # Otherwise, keep the character as is\n            result += char\n    \n    return result\n```\n\n### Explanation:\n\n1. **`encode` Function**:\n   - We create a dictionary `vowels_to_numbers` that maps each vowel (`'a'`, `'e'`, `'i'`, `'o'`, `'u'`) to its respective number (`'1'`, `'2'`, `'3'`, `'4'`, `'5'`).\n   - We loop through each character in the `input_string`:\n     - If it's a vowel (i.e., it exists in the dictionary), we append its corresponding number to the result string.\n     - Otherwise, we append the character as is (i.e., for consonants or non-alphabetic characters).\n   - Finally, the transformed string is returned.\n\n2. **`decode` Function**:\n   - Similarly, we create a dictionary `numbers_to_vowels` that maps each number (`'1'`, `'2'`, `'3'`, `'4'`, `'5'`) back to its corresponding vowel (`'a'`, `'e'`, `'i'`, `'o'`, `'u'`).\n   - We loop through each character in the `input_string`:\n     - If the character is a number (i.e., it exists in the dictionary), we replace it with the corresponding vowel.\n     - Otherwise, we keep the character unchanged.\n   - Finally, the transformed string is returned.\n\n### Example:\n\nLet's test the functions with some examples:\n\n```python\n# Test encoding\nencoded_string = encode(\"hello\")\nprint(encoded_string)  # Output: h2ll4\n\n# Test decoding\ndecoded_string = decode(\"h3 th2r2\")\nprint(decoded_string)  # Output: hi there\n```\n\nThis code correctly implements the encoding and decoding transformations based on the specified vowel-number mapping.",
+            "step_value": 1.0,
+            "edges": [
+                15,
+                29
+            ]
+        },
+        "3": {
+            "node_id": 15,
+            "ost_step": "### Step 3: **Refining the `decode` Function (Action 2)**\n\n#### Goal:\nAdd details to the `decode` function to specify how each number will be replaced with its corresponding vowel using the defined mapping.\n\n#### Pseudocode:\n```pseudo\nFunction decode(input_string):\n    Define a mapping dictionary: numbers_to_vowels = {'1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u'}\n    Initialize an empty result string: result = \"\"\n    For each character in input_string:\n        If character is in numbers_to_vowels:\n            Append numbers_to_vowels[character] to result\n        Else:\n            Append character to result\n    Return result\n```\n\n**Explanation:**\n- We create a dictionary `numbers_to_vowels` that maps each number to its corresponding vowel.\n- We iterate through each character in `input_string`.\n- If a character is found in the dictionary, we replace it with its corresponding vowel.\n- Otherwise, we append the original character to the result.\n- The function finally returns the transformed string.",
+            "step_value": 1.0,
+            "edges": [
+                11,
+                15
+            ]
+        },
+        "2": {
+            "node_id": 11,
+            "ost_step": "### Step 2: **Refining the `encode` Function (Action 2)**\n\n#### Goal:\nAdd details to the `encode` function to specify how each vowel will be replaced with its corresponding number using the defined mapping.\n\n#### Pseudocode:\n```pseudo\nFunction encode(input_string):\n    Define a mapping dictionary: vowels_to_numbers = {'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5'}\n    Initialize an empty result string: result = \"\"\n    For each character in input_string:\n        If character is in vowels_to_numbers:\n            Append vowels_to_numbers[character] to result\n        Else:\n            Append character to result\n    Return result\n```\n\n**Explanation:**\n- We create a dictionary `vowels_to_numbers` that maps each vowel to its corresponding number.\n- We iterate through each character in `input_string`.\n- If a character is found in the dictionary, we replace it with its corresponding number.\n- Otherwise, we append the original character to the result.\n- The function finally returns the transformed string.",
+            "step_value": 1.0,
+            "edges": [
+                1,
+                11
+            ]
+        },
+        "1": {
+            "node_id": 1,
+            "ost_step": "**Defining High-Level Structure (Action 1)**\n\n#### Goal:\nDefine the structure of the `encode` and `decode` functions. Each function will perform string transformations based on the given pattern.\n\n1. `encode` function:\n   - Replace vowels with corresponding numbers.\n2. `decode` function:\n   - Replace numbers with corresponding vowels.\n\n#### Pseudocode:\n```pseudo\nFunction encode(input_string):\n    Create a mapping of vowels to numbers\n    Initialize an empty result string\n    For each character in input_string:\n        If character is a vowel, append corresponding number to result\n        Else, append character itself to result\n    Return the result string\n\nFunction decode(input_string):\n    Create a mapping of numbers to vowels\n    Initialize an empty result string\n    For each character in input_string:\n        If character is a number, append corresponding vowel to result\n        Else, append character itself to result\n    Return the result string\n```",
+            "step_value": 1.0,
+            "edges": [
+                0,
+                1
+            ]
+        },
+        "0": {
+            "node_id": 0,
+            "question": "**Step 1:** Create a function called `encode()` to replace all the lowercase vowels in a given string with numbers according to the following pattern:\n```\na -> 1\ne -> 2\ni -> 3\no -> 4\nu -> 5\n```\n\nFor example, `encode(\"hello\")` would return `\"h2ll4\"`. There is no need to worry about uppercase vowels in this kata.\n\n**Step 2:** Now create a function called `decode()` to turn the numbers back into vowels according to the same pattern shown above.\n\nFor example, `decode(\"h3 th2r2\")` would return `\"hi there\"`.\n\nFor the sake of simplicity, you can assume that any numbers passed into the function will correspond to vowels."
+        }
+    },
+    {
+        "3": {
+            "node_id": 24,
+            "ost_step": "### Step 3: **Generating Python Code for the Encode and Decode Functions (Action 3)**\n\n#### Goal:\nTranslate the refined pseudocode into executable Python code for both the `encode` and `decode` functions. This implementation will handle the transformation of vowels to numbers and vice versa.\n\n#### Python Code:\n```python\ndef encode(input_string):\n    vowel_to_number = {'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5'}\n    result = []\n    for char in input_string:\n        if char in vowel_to_number:\n            result.append(vowel_to_number[char])\n        else:\n            result.append(char)\n    return ''.join(result)\n\ndef decode(input_string):\n    number_to_vowel = {'1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u'}\n    result = []\n    for char in input_string:\n        if char in number_to_vowel:\n            result.append(number_to_vowel[char])\n        else:\n            result.append(char)\n    return ''.join(result)\n\n# Example usage:\nencoded_string = encode(\"hello\")\nprint(encoded_string)  # Output: \"h2ll4\"\n\ndecoded_string = decode(\"h3 th2r2\")\nprint(decoded_string)  # Output: \"hi there\"\n```\n\n### Explanation:\n- **Encode Function:**\n  - We use a dictionary `vowel_to_number` to map each vowel to its corresponding number.\n  - For each character in the input string, we check if it is a vowel. If yes, we append the corresponding number to the result list. If not, we append the character as is.\n  - The result list is converted back to a string using `''.join(result)` and returned.\n\n- **Decode Function:**\n  - Similarly, we use a dictionary `number_to_vowel` to map numbers back to vowels.\n  - For each character in the input string, we check if it is a number. If yes, we append the corresponding vowel to the result list. If not, we append the character as is.\n  - The result list is converted back to a string and returned.\n\nThis Python implementation efficiently handles the encoding and decoding of strings as described in the problem.",
+            "step_value": 1.0,
+            "edges": [
+                12,
+                24
+            ]
+        },
+        "2": {
+            "node_id": 12,
+            "ost_step": "### Step 2: **Refining the Encode and Decode Functions (Action 2)**\n\n#### Goal:\nWe will now add more detailed logic to the `encode` and `decode` functions. Specifically, we will implement the exact steps for replacing characters in the strings.\n\nFor the `encode` function:\n1. We will loop through each character in the input string.\n2. If the character is a lowercase vowel (`a`, `e`, `i`, `o`, `u`), we will replace it with its corresponding number from the defined mapping.\n3. If the character is not a vowel, it will remain unchanged.\n\nFor the `decode` function:\n1. We will loop through each character in the input string.\n2. If the character is a number (`1`, `2`, `3`, `4`, `5`), we will replace it with the corresponding vowel from the mapping.\n3. If the character is not a number, it will remain unchanged.\n\n#### Pseudocode:\n\n```pseudo\nFunction encode(input_string):\n    vowel_to_number = {'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5'}\n    Initialize an empty result string\n    For each character in input_string:\n        If character is in vowel_to_number:\n            Append corresponding number to result\n        Else:\n            Append character itself to result\n    Return the result string\n\nFunction decode(input_string):\n    number_to_vowel = {'1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u'}\n    Initialize an empty result string\n    For each character in input_string:\n        If character is in number_to_vowel:\n            Append corresponding vowel to result\n        Else:\n            Append character itself to result\n    Return the result string\n```\n\nThis approach makes sure that each character in the string is processed independently, and we only change vowels to numbers or numbers to vowels as needed.\n\n",
+            "step_value": 1.0,
+            "edges": [
+                1,
+                12
+            ]
+        },
+        "1": {
+            "node_id": 1,
+            "ost_step": "**Defining High-Level Structure (Action 1)**\n\n#### Goal:\nDefine the structure of the `encode` and `decode` functions. Each function will perform string transformations based on the given pattern.\n\n1. `encode` function:\n   - Replace vowels with corresponding numbers.\n2. `decode` function:\n   - Replace numbers with corresponding vowels.\n\n#### Pseudocode:\n```pseudo\nFunction encode(input_string):\n    Create a mapping of vowels to numbers\n    Initialize an empty result string\n    For each character in input_string:\n        If character is a vowel, append corresponding number to result\n        Else, append character itself to result\n    Return the result string\n\nFunction decode(input_string):\n    Create a mapping of numbers to vowels\n    Initialize an empty result string\n    For each character in input_string:\n        If character is a number, append corresponding vowel to result\n        Else, append character itself to result\n    Return the result string\n```",
+            "step_value": 1.0,
+            "edges": [
+                0,
+                1
+            ]
+        },
+        "0": {
+            "node_id": 0,
+            "question": "**Step 1:** Create a function called `encode()` to replace all the lowercase vowels in a given string with numbers according to the following pattern:\n```\na -> 1\ne -> 2\ni -> 3\no -> 4\nu -> 5\n```\n\nFor example, `encode(\"hello\")` would return `\"h2ll4\"`. There is no need to worry about uppercase vowels in this kata.\n\n**Step 2:** Now create a function called `decode()` to turn the numbers back into vowels according to the same pattern shown above.\n\nFor example, `decode(\"h3 th2r2\")` would return `\"hi there\"`.\n\nFor the sake of simplicity, you can assume that any numbers passed into the function will correspond to vowels."
+        }
+    },
+    {
+        "3": {
+            "node_id": 19,
+            "ost_step": "### Step 3: **Generating Python Code for `encode()` and `decode()` Functions (Action 3)**\n\n#### Goal:\nTranslate the refined pseudocode into Python functions for `encode` and `decode`, ensuring they handle the string transformations as specified.\n\n#### Python Code:\n\n```python\ndef encode(input_string):\n    # Mapping of vowels to numbers\n    vowel_to_number = {'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5'}\n    result = []\n    # Replace vowels with corresponding numbers\n    for char in input_string:\n        if char in vowel_to_number:\n            result.append(vowel_to_number[char])\n        else:\n            result.append(char)\n    return ''.join(result)\n\ndef decode(input_string):\n    # Mapping of numbers to vowels\n    number_to_vowel = {'1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u'}\n    result = []\n    # Replace numbers with corresponding vowels\n    for char in input_string:\n        if char in number_to_vowel:\n            result.append(number_to_vowel[char])\n        else:\n            result.append(char)\n    return ''.join(result)\n\n# Example usage:\n# print(encode(\"hello\"))  # Output: \"h2ll4\"\n# print(decode(\"h3 th2r2\"))  # Output: \"hi there\"\n```\n\n#### Explanation:\n- **`encode` function:**\n  - We use a dictionary to map each vowel to its corresponding number.\n  - Iterate over each character in the input string. If it's a vowel, replace it with the corresponding number. Otherwise, append the character as is.\n  - Join the list of characters into a single string and return it.\n\n- **`decode` function:**\n  - We use a dictionary to map each number back to its corresponding vowel.\n  - Iterate over each character in the input string. If it's a number (1-5), replace it with the corresponding vowel. Otherwise, append the character as is.\n  - Join the list of characters into a single string and return it.\n\nThe implementation ensures that the functions correctly transform the input based on the specified pattern and assumptions.",
+            "step_value": 1.0,
+            "edges": [
+                13,
+                19
+            ]
+        },
+        "2": {
+            "node_id": 13,
+            "ost_step": "**Refining the pseudocode for `encode()` and `decode()` functions (Action 2)**\n\n#### Goal:\n1. **For `encode`**: Map each lowercase vowel to its corresponding number and replace them in the input string. Non-vowel characters should remain unchanged.\n2. **For `decode`**: Convert each number back to its corresponding vowel. Non-number characters should remain unchanged.\n\n#### Refined Pseudocode:\n\n**`encode()` function:**\n1. Create a dictionary that maps vowels to their corresponding numbers.\n2. Initialize an empty result string.\n3. For each character in the input string:\n   - If the character is a vowel (a, e, i, o, u), append the corresponding number to the result.\n   - Otherwise, append the character itself to the result.\n4. Return the result string.\n\n```pseudo\nFunction encode(input_string):\n    Create a dictionary vowel_to_number = {'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5'}\n    Initialize an empty string result\n    For each character in input_string:\n        If character is a lowercase vowel:\n            Append vowel_to_number[character] to result\n        Else:\n            Append character to result\n    Return result\n```\n\n**`decode()` function:**\n1. Create a dictionary that maps numbers ('1', '2', '3', '4', '5') back to vowels ('a', 'e', 'i', 'o', 'u').\n2. Initialize an empty result string.\n3. For each character in the input string:\n   - If the character is a digit (representing a vowel), replace it with the corresponding vowel.\n   - Otherwise, append the character itself to the result.\n4. Return the result string.\n\n```pseudo\nFunction decode(input_string):\n    Create a dictionary number_to_vowel = {'1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u'}\n    Initialize an empty string result\n    For each character in input_string:\n        If character is a digit (1-5):\n            Append number_to_vowel[character] to result\n        Else:\n            Append character to result\n    Return result\n```\n\n",
+            "step_value": 1.0,
+            "edges": [
+                1,
+                13
+            ]
+        },
+        "1": {
+            "node_id": 1,
+            "ost_step": "**Defining High-Level Structure (Action 1)**\n\n#### Goal:\nDefine the structure of the `encode` and `decode` functions. Each function will perform string transformations based on the given pattern.\n\n1. `encode` function:\n   - Replace vowels with corresponding numbers.\n2. `decode` function:\n   - Replace numbers with corresponding vowels.\n\n#### Pseudocode:\n```pseudo\nFunction encode(input_string):\n    Create a mapping of vowels to numbers\n    Initialize an empty result string\n    For each character in input_string:\n        If character is a vowel, append corresponding number to result\n        Else, append character itself to result\n    Return the result string\n\nFunction decode(input_string):\n    Create a mapping of numbers to vowels\n    Initialize an empty result string\n    For each character in input_string:\n        If character is a number, append corresponding vowel to result\n        Else, append character itself to result\n    Return the result string\n```",
+            "step_value": 1.0,
+            "edges": [
+                0,
+                1
+            ]
+        },
+        "0": {
+            "node_id": 0,
+            "question": "**Step 1:** Create a function called `encode()` to replace all the lowercase vowels in a given string with numbers according to the following pattern:\n```\na -> 1\ne -> 2\ni -> 3\no -> 4\nu -> 5\n```\n\nFor example, `encode(\"hello\")` would return `\"h2ll4\"`. There is no need to worry about uppercase vowels in this kata.\n\n**Step 2:** Now create a function called `decode()` to turn the numbers back into vowels according to the same pattern shown above.\n\nFor example, `decode(\"h3 th2r2\")` would return `\"hi there\"`.\n\nFor the sake of simplicity, you can assume that any numbers passed into the function will correspond to vowels."
+        }
+    },
+    {
+        "2": {
+            "node_id": 18,
+            "ost_step": "### Step 2: **Refining the `encode` and `decode` Functions (Action 2)**\n\n#### Goal:\nRefine the pseudocode to specify how we will perform character transformations for both encoding and decoding processes. This includes handling the replacement of vowels with numbers and vice versa, ensuring that we properly identify vowels and numbers.\n\n#### Pseudocode:\n\n```pseudo\nFunction encode(input_string):\n    # Define the mapping from vowels to numbers\n    vowels_to_numbers = {'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5'}\n    Initialize an empty result string\n    \n    # Iterate over each character in the input string\n    For each character in input_string:\n        If character is a lowercase vowel (check if character in vowels_to_numbers):\n            Append the corresponding number from vowels_to_numbers to result\n        Else:\n            Append the character itself to the result string\n    \n    Return the result string\n\n\nFunction decode(input_string):\n    # Define the mapping from numbers to vowels\n    numbers_to_vowels = {'1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u'}\n    Initialize an empty result string\n    \n    # Iterate over each character in the input string\n    For each character in input_string:\n        If character is a number (check if character in numbers_to_vowels):\n            Append the corresponding vowel from numbers_to_vowels to result\n        Else:\n            Append the character itself to the result string\n    \n    Return the result string\n```\n\n#### Explanation:\n1. **`encode()` Function**:\n   - We create a dictionary `vowels_to_numbers` to map lowercase vowels to numbers.\n   - For each character in the input string, we check if it is a vowel using `vowels_to_numbers`. If it is, we append the corresponding number to the result string. Otherwise, we append the character as is.\n\n2. **`decode()` Function**:\n   - Similarly, we define a dictionary `numbers_to_vowels` to map numbers (as characters) back to vowels.\n   - For each character in the input string, we check if it is a number using `numbers_to_vowels`. If it is, we append the corresponding vowel to the result string. Otherwise, we append the character as is.\n\n### Step 3: **Implementing Python Code (Action 3)**\n\n#### Python Code:\n\n```python\ndef encode(input_string):\n    # Mapping vowels to their corresponding numbers\n    vowels_to_numbers = {'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5'}\n    result = []\n    \n    for char in input_string:\n        # If the character is a vowel, replace it with the corresponding number\n        if char in vowels_to_numbers:\n            result.append(vowels_to_numbers[char])\n        else:\n            result.append(char)  # Otherwise, keep the character as is\n    \n    return ''.join(result)\n\n\ndef decode(input_string):\n    # Mapping numbers to their corresponding vowels\n    numbers_to_vowels = {'1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u'}\n    result = []\n    \n    for char in input_string:\n        # If the character is a number, replace it with the corresponding vowel\n        if char in numbers_to_vowels:\n            result.append(numbers_to_vowels[char])\n        else:\n            result.append(char)  # Otherwise, keep the character as is\n    \n    return ''.join(result)\n\n\n# Test examples:\nencoded = encode(\"hello\")\nprint(encoded)  # Expected: \"h2ll4\"\n\ndecoded = decode(\"h3 th2r2\")\nprint(decoded)  # Expected: \"hi there\"\n```\n\n### Explanation of Python Code:\n\n1. **`encode()` Function**:\n   - We create a dictionary `vowels_to_numbers` mapping each vowel ('a', 'e', 'i', 'o', 'u') to a corresponding number ('1', '2', '3', '4', '5').\n   - We iterate through each character of `input_string`. If the character is a vowel, we append the corresponding number to the result list. If it is not a vowel, we append the character itself.\n   - Finally, we join the result list into a string and return it.\n\n2. **`decode()` Function**:\n   - Similar to `encode()`, we create a dictionary `numbers_to_vowels` that maps each number ('1', '2', '3', '4', '5') back to a vowel ('a', 'e', 'i', 'o', 'u').\n   - We iterate through each character of `input_string`. If the character is a number, we append the corresponding vowel to the result list. If it is not a number, we append the character itself.\n   - Finally, we join the result list into a string and return it.\n\n#### Time Complexity:\n- **`encode()`**: O(n), where `n` is the length of the input string, since we iterate through the string once.\n- **`decode()`**: O(n), for the same reason as above.\n\nBoth functions operate efficiently with time complexity linear to the size of the input string.\n\n### Testing:\n\n```python\n# Test cases\nprint(encode(\"hello\"))  # Expected output: \"h2ll4\"\nprint(decode(\"h3 th2r2\"))  # Expected output: \"hi there\"\n```",
+            "step_value": 0.25,
+            "edges": [
+                2,
+                18
+            ]
+        },
+        "1": {
+            "node_id": 2,
+            "ost_step": "**Defining High-Level Structure (Action 1)**\n\n#### Goal:\nDefine the structure of the `encode` and `decode` functions. Each function will perform string transformations based on predefined patterns for vowels and numbers.\n\n#### Pseudocode:\n```pseudo\nFunction encode(input_string):\n    Create a dictionary to map vowels to their respective numbers\n    Initialize an empty result string\n    For each character in input_string:\n        If the character is a vowel:\n            Append its corresponding number to the result string\n        Else:\n            Append the character itself to the result string\n    Return the result string\n\nFunction decode(input_string):\n    Create a dictionary to map numbers to their respective vowels\n    Initialize an empty result string\n    For each character in input_string:\n        If the character is a number:\n            Append its corresponding vowel to the result string\n        Else:\n            Append the character itself to the result string\n    Return the result string\n```",
+            "step_value": 1.0,
+            "edges": [
+                0,
+                2
+            ]
+        },
+        "0": {
+            "node_id": 0,
+            "question": "**Step 1:** Create a function called `encode()` to replace all the lowercase vowels in a given string with numbers according to the following pattern:\n```\na -> 1\ne -> 2\ni -> 3\no -> 4\nu -> 5\n```\n\nFor example, `encode(\"hello\")` would return `\"h2ll4\"`. There is no need to worry about uppercase vowels in this kata.\n\n**Step 2:** Now create a function called `decode()` to turn the numbers back into vowels according to the same pattern shown above.\n\nFor example, `decode(\"h3 th2r2\")` would return `\"hi there\"`.\n\nFor the sake of simplicity, you can assume that any numbers passed into the function will correspond to vowels."
+        }
+    },
+    {
+        "4": {
+            "node_id": 10,
+            "ost_step": "### Step 4: **Generating Python Code for `encode()` and `decode()` (Action 3)**\n\nNow that the pseudocode for both `encode()` and `decode()` functions has been fully refined, we translate it into Python code. This involves implementing the logic for both encoding vowels as numbers and decoding numbers back into vowels.\n\n#### Python Code:\n```python\ndef encode(string):\n    # Mapping from vowels to numbers\n    vowel_to_number = {'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5'}\n    # String to store encoded result\n    encoded_string = \"\"\n    # Iterate over each character in the input string\n    for char in string:\n        # Check if the character is a vowel and map it to the corresponding number\n        if char in vowel_to_number:\n            encoded_string += vowel_to_number[char]\n        else:\n            # Keep non-vowel characters unchanged\n            encoded_string += char\n    return encoded_string\n\ndef decode(string):\n    # Mapping from numbers to vowels\n    number_to_vowel = {'1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u'}\n    # String to store decoded result\n    decoded_string = \"\"\n    # Iterate over each character in the input string\n    for char in string:\n        # Check if the character is a number and map it to the corresponding vowel\n        if char in number_to_vowel:\n            decoded_string += number_to_vowel[char]\n        else:\n            # Keep non-numeric characters unchanged\n            decoded_string += char\n    return decoded_string\n\n# Example usage:\nprint(encode(\"hello\"))  # Output: \"h2ll4\"\nprint(decode(\"h3 th2r2\"))  # Output: \"hi there\"\n```\n\n#### Explanation:\n- For the `encode()` function, we create a dictionary `vowel_to_number` to map vowels to numbers. We iterate over each character in the input string, replacing vowels with their corresponding numbers and keeping other characters unchanged.\n- For the `decode()` function, we create a dictionary `number_to_vowel` to map numbers back to vowels. We iterate over each character in the input string, replacing numbers with their corresponding vowels and keeping other characters unchanged.\n- The code is efficient and straightforward, utilizing dictionary lookups to perform the necessary character replacements.\n\nThis completes the translation of the refined pseudocode into Python, providing a functional implementation of the `encode()` and `decode()` operations.",
+            "step_value": 1.0,
+            "edges": [
+                7,
+                10
+            ]
+        },
+        "3": {
+            "node_id": 7,
+            "ost_step": "### Step 3: **Refine the `decode()` Function (Action 2)**\n\nIn this step, we refine the pseudocode for the `decode()` function. The goal is to handle the process of replacing numbers with the corresponding vowels. We will establish a dictionary for number-to-vowel mappings and refine the logic for parsing through the string.\n\n#### Pseudocode:\n```pseudo\nFunction decode(string):\n    Initialize a dictionary `number_to_vowel` with mappings: {'1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u'}\n    Initialize an empty string `decoded_string` to store the result\n    For each character `char` in the input `string`:\n        If `char` is in `number_to_vowel`:\n            Append `number_to_vowel[char]` to `decoded_string`\n        Else:\n            Append `char` to `decoded_string`\n    Return `decoded_string`\n```\n\n#### Reasoning:\n- We create a dictionary `number_to_vowel` to map each number (1-5) back to its respective vowel.\n- For each character in the string, we check if it's a number (1-5) by looking it up in the dictionary.\n- If it's a number, we append the corresponding vowel to the result string.\n- If it's not a number (e.g., spaces or other characters), we simply append it as is.\n\nThis approach ensures that we correctly reverse the encoding process, replacing numbers with vowels while maintaining the integrity of non-numeric characters.\n\n",
+            "step_value": 1.0,
+            "edges": [
+                4,
+                7
+            ]
+        },
+        "2": {
+            "node_id": 4,
+            "ost_step": "### Step 2: **Refine the `encode()` Function (Action 2)**\n\nIn this step, we will refine the pseudocode for the `encode()` function by detailing how to handle each character in the input string and map vowels to numbers. This includes the setup of the dictionary for encoding and the loop to process each character.\n\n#### Pseudocode:\n```pseudo\nFunction encode(string):\n    Initialize a dictionary `vowel_to_number` with mappings: {'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5'}\n    Initialize an empty string `encoded_string` to store the result\n    For each character `char` in the input `string`:\n        If `char` is in `vowel_to_number`:\n            Append `vowel_to_number[char]` to `encoded_string`\n        Else:\n            Append `char` to `encoded_string`\n    Return `encoded_string`\n```\n\n#### Reasoning:\n- We use a dictionary to efficiently map each vowel to its corresponding number.\n- For each character in the string, we check if it's a vowel by looking it up in the dictionary.\n- If it's a vowel, we append the mapped number to the result string.\n- If it's not a vowel, we append the character as is to maintain the integrity of non-vowel characters.",
+            "step_value": 1.0,
+            "edges": [
+                3,
+                4
+            ]
+        },
+        "1": {
+            "node_id": 3,
+            "ost_step": "### Step 1: **Defining High-Level Structure for `encode()` and `decode()` (Action 1)**\n\nIn this first step, we define the overall structure of both the `encode()` and `decode()` functions. The goal of the `encode()` function is to replace vowels in the string with their respective numbers, while the `decode()` function will reverse this process, converting numbers back into the corresponding vowels.\n\n#### Plan for `encode()`:\n1. Loop through each character in the input string.\n2. For each lowercase vowel (`a`, `e`, `i`, `o`, `u`), replace it with the corresponding number (`a -> 1`, `e -> 2`, etc.).\n3. Keep all other characters (non-vowels) unchanged.\n\n#### Plan for `decode()`:\n1. Loop through each character in the input string.\n2. For each number (`1`, `2`, `3`, `4`, `5`), replace it with the corresponding vowel (`1 -> a`, `2 -> e`, etc.).\n3. Keep all other characters (non-numeric) unchanged.\n\n#### Pseudocode:\n```pseudo\nFunction encode(string):\n    Initialize a dictionary for vowel to number mappings\n    Initialize an empty string for the result\n    For each character in the string:\n        If the character is a vowel:\n            Append the corresponding number to the result\n        Else:\n            Append the character as is\n    Return the result string\n\nFunction decode(string):\n    Initialize a dictionary for number to vowel mappings\n    Initialize an empty string for the result\n    For each character in the string:\n        If the character is a number:\n            Append the corresponding vowel to the result\n        Else:\n            Append the character as is\n    Return the result string\n```\n\n",
+            "step_value": 1.0,
+            "edges": [
+                0,
+                3
+            ]
+        },
+        "0": {
+            "node_id": 0,
+            "question": "**Step 1:** Create a function called `encode()` to replace all the lowercase vowels in a given string with numbers according to the following pattern:\n```\na -> 1\ne -> 2\ni -> 3\no -> 4\nu -> 5\n```\n\nFor example, `encode(\"hello\")` would return `\"h2ll4\"`. There is no need to worry about uppercase vowels in this kata.\n\n**Step 2:** Now create a function called `decode()` to turn the numbers back into vowels according to the same pattern shown above.\n\nFor example, `decode(\"h3 th2r2\")` would return `\"hi there\"`.\n\nFor the sake of simplicity, you can assume that any numbers passed into the function will correspond to vowels."
+        }
+    },
+    {
+        "4": {
+            "node_id": 30,
+            "ost_step": "### Step 4: **Generate Python Code for `encode()` and `decode()` (Action 3)**\n\nIn this step, we will convert the refined pseudocode for the `encode()` and `decode()` functions into actual Python code. This involves creating the functions, using the dictionaries for mappings, and implementing the logic to process each character in the input strings.\n\n#### Python Code:\n```python\ndef encode(string):\n    # Dictionary for mapping vowels to numbers\n    vowel_to_number = {'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5'}\n    # Initialize an empty result string\n    encoded_string = \"\"\n    \n    # Process each character in the input string\n    for char in string:\n        # If the character is a vowel, replace it with the corresponding number\n        if char in vowel_to_number:\n            encoded_string += vowel_to_number[char]\n        else:\n            # If not a vowel, add the character as is\n            encoded_string += char\n    \n    return encoded_string\n\ndef decode(string):\n    # Dictionary for mapping numbers back to vowels\n    number_to_vowel = {'1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u'}\n    # Initialize an empty result string\n    decoded_string = \"\"\n    \n    # Process each character in the input string\n    for char in string:\n        # If the character is a number, replace it with the corresponding vowel\n        if char in number_to_vowel:\n            decoded_string += number_to_vowel[char]\n        else:\n            # If not a number, add the character as is\n            decoded_string += char\n    \n    return decoded_string\n\n# Example usage\nencoded = encode(\"hello\")\nprint(encoded)  # Output: \"h2ll4\"\n\ndecoded = decode(\"h3 th2r2\")\nprint(decoded)  # Output: \"hi there\"\n```\n\n#### Explanation:\n- **`encode()` Function**: We iterate over each character in the input string and use the `vowel_to_number` dictionary to replace vowels with numbers. Non-vowel characters are appended as they are.\n- **`decode()` Function**: Similarly, we iterate over each character, using the `number_to_vowel` dictionary to map numbers back to vowels. Non-numeric characters are added unchanged.\n- Example usage shows the functions in action, encoding and decoding strings as required.",
+            "step_value": 1.0,
+            "edges": [
+                9,
+                30
+            ]
+        },
+        "3": {
+            "node_id": 9,
+            "ost_step": "### Step 3: **Refine the `decode()` Function (Action 2)**\n\nIn this step, we will refine the pseudocode for the `decode()` function, providing details on how to process each character in the input string and map numbers back to vowels. This includes setting up the dictionary for decoding and iterating over each character.\n\n#### Pseudocode:\n```pseudo\nFunction decode(string):\n    Initialize a dictionary `number_to_vowel` with mappings: {'1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u'}\n    Initialize an empty string `decoded_string` to store the result\n    For each character `char` in the input `string`:\n        If `char` is in `number_to_vowel`:\n            Append `number_to_vowel[char]` to `decoded_string`\n        Else:\n            Append `char` to `decoded_string`\n    Return `decoded_string`\n```\n\n#### Reasoning:\n- We use a dictionary to map numbers back to their respective vowels.\n- As we iterate through each character in the string, we check if it's a number by looking it up in the dictionary.\n- If it's a number, we replace it with the corresponding vowel by appending it to the result string.\n- If it's not a number, we append the character as is to preserve non-numeric characters.",
+            "step_value": 1.0,
+            "edges": [
+                4,
+                9
+            ]
+        },
+        "2": {
+            "node_id": 4,
+            "ost_step": "### Step 2: **Refine the `encode()` Function (Action 2)**\n\nIn this step, we will refine the pseudocode for the `encode()` function by detailing how to handle each character in the input string and map vowels to numbers. This includes the setup of the dictionary for encoding and the loop to process each character.\n\n#### Pseudocode:\n```pseudo\nFunction encode(string):\n    Initialize a dictionary `vowel_to_number` with mappings: {'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5'}\n    Initialize an empty string `encoded_string` to store the result\n    For each character `char` in the input `string`:\n        If `char` is in `vowel_to_number`:\n            Append `vowel_to_number[char]` to `encoded_string`\n        Else:\n            Append `char` to `encoded_string`\n    Return `encoded_string`\n```\n\n#### Reasoning:\n- We use a dictionary to efficiently map each vowel to its corresponding number.\n- For each character in the string, we check if it's a vowel by looking it up in the dictionary.\n- If it's a vowel, we append the mapped number to the result string.\n- If it's not a vowel, we append the character as is to maintain the integrity of non-vowel characters.",
+            "step_value": 1.0,
+            "edges": [
+                3,
+                4
+            ]
+        },
+        "1": {
+            "node_id": 3,
+            "ost_step": "### Step 1: **Defining High-Level Structure for `encode()` and `decode()` (Action 1)**\n\nIn this first step, we define the overall structure of both the `encode()` and `decode()` functions. The goal of the `encode()` function is to replace vowels in the string with their respective numbers, while the `decode()` function will reverse this process, converting numbers back into the corresponding vowels.\n\n#### Plan for `encode()`:\n1. Loop through each character in the input string.\n2. For each lowercase vowel (`a`, `e`, `i`, `o`, `u`), replace it with the corresponding number (`a -> 1`, `e -> 2`, etc.).\n3. Keep all other characters (non-vowels) unchanged.\n\n#### Plan for `decode()`:\n1. Loop through each character in the input string.\n2. For each number (`1`, `2`, `3`, `4`, `5`), replace it with the corresponding vowel (`1 -> a`, `2 -> e`, etc.).\n3. Keep all other characters (non-numeric) unchanged.\n\n#### Pseudocode:\n```pseudo\nFunction encode(string):\n    Initialize a dictionary for vowel to number mappings\n    Initialize an empty string for the result\n    For each character in the string:\n        If the character is a vowel:\n            Append the corresponding number to the result\n        Else:\n            Append the character as is\n    Return the result string\n\nFunction decode(string):\n    Initialize a dictionary for number to vowel mappings\n    Initialize an empty string for the result\n    For each character in the string:\n        If the character is a number:\n            Append the corresponding vowel to the result\n        Else:\n            Append the character as is\n    Return the result string\n```\n\n",
+            "step_value": 1.0,
+            "edges": [
+                0,
+                3
+            ]
+        },
+        "0": {
+            "node_id": 0,
+            "question": "**Step 1:** Create a function called `encode()` to replace all the lowercase vowels in a given string with numbers according to the following pattern:\n```\na -> 1\ne -> 2\ni -> 3\no -> 4\nu -> 5\n```\n\nFor example, `encode(\"hello\")` would return `\"h2ll4\"`. There is no need to worry about uppercase vowels in this kata.\n\n**Step 2:** Now create a function called `decode()` to turn the numbers back into vowels according to the same pattern shown above.\n\nFor example, `decode(\"h3 th2r2\")` would return `\"hi there\"`.\n\nFor the sake of simplicity, you can assume that any numbers passed into the function will correspond to vowels."
+        }
+    },
+    {
+        "4": {
+            "node_id": 23,
+            "ost_step": "### Step 4: **Generate Python Code for `encode()` and `decode()` Functions (Action 3)**\n\nIn this step, we translate the refined pseudocode for both `encode()` and `decode()` functions into executable Python code.\n\n#### Goal:\nImplement the `encode()` and `decode()` functions in Python, ensuring they correctly map vowels to numbers and numbers back to vowels.\n\n#### Python Code:\n\n```python\ndef encode(string):\n    # Dictionary to map vowels to numbers\n    vowel_to_number = {'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5'}\n    # Initialize an empty result string\n    result = ''\n    # Iterate over each character in the input string\n    for c in string:\n        # Check if the character is a vowel and replace it with the corresponding number\n        if c in vowel_to_number:\n            result += vowel_to_number[c]\n        else:\n            result += c\n    return result\n\ndef decode(string):\n    # Dictionary to map numbers to vowels\n    number_to_vowel = {'1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u'}\n    # Initialize an empty result string\n    result = ''\n    # Iterate over each character in the input string\n    for c in string:\n        # Check if the character is a number and replace it with the corresponding vowel\n        if c in number_to_vowel:\n            result += number_to_vowel[c]\n        else:\n            result += c\n    return result\n\n# Example usage:\nprint(encode(\"hello\"))  # Output: \"h2ll4\"\nprint(decode(\"h3 th2r2\"))  # Output: \"hi there\"\n```\n\n- The `encode()` function converts each vowel in the input string to its corresponding number using the `vowel_to_number` dictionary.\n- The `decode()` function converts each number in the input string back to its corresponding vowel using the `number_to_vowel` dictionary.\n- Both functions iterate over the input string, building a new string based on the mapping rules defined in the dictionaries.",
+            "step_value": 1.0,
+            "edges": [
+                21,
+                23
+            ]
+        },
+        "3": {
+            "node_id": 21,
+            "ost_step": "### Step 3: **Refine the `decode()` Function (Action 2)**\n\nIn this step, we refine the pseudocode for the `decode()` function by detailing how to handle each character in the input string and map numbers back to vowels.\n\n#### Goal:\n1. Iterate over each character of the input string.\n2. Use a dictionary to map numbers to their corresponding vowels.\n3. Build the decoded string by replacing numbers with vowels.\n\n#### Pseudocode:\n```pseudo\nFunction decode(string):\n    Define number_to_vowel dictionary = {'1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u'}\n    Initialize an empty string result\n    For each character c in the input string:\n        If c is in number_to_vowel dictionary:\n            Append number_to_vowel[c] to result\n        Else:\n            Append c to result\n    Return result\n```\n- Here, the dictionary `number_to_vowel` maps each number to its corresponding vowel.\n- We iterate through each character in the string and check if it is a number using the dictionary.\n- If a character is a number, we append its corresponding vowel to the result string; otherwise, we append the character itself.",
+            "step_value": 1.0,
+            "edges": [
+                5,
+                21
+            ]
+        },
+        "2": {
+            "node_id": 5,
+            "ost_step": "### Step 2: **Refine the `encode()` Function (Action 2)**\n\nIn this step, we will refine the pseudocode for the `encode()` function by detailing how to handle each character in the input string and map vowels to numbers.\n\n#### Goal:\n1. Iterate over each character of the input string.\n2. Use a dictionary to map vowels to their corresponding numbers.\n3. Build the encoded string by replacing vowels with numbers.\n\n#### Pseudocode:\n```pseudo\nFunction encode(string):\n    Define vowel_to_number dictionary = {'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5'}\n    Initialize an empty string result\n    For each character c in the input string:\n        If c is in vowel_to_number dictionary:\n            Append vowel_to_number[c] to result\n        Else:\n            Append c to result\n    Return result\n```\n- Here, the dictionary `vowel_to_number` maps each vowel to its corresponding number.\n- We iterate through each character in the string and check if it is a vowel using the dictionary.\n- If a character is a vowel, we append its corresponding number to the result string; otherwise, we append the character itself.",
+            "step_value": 1.0,
+            "edges": [
+                3,
+                5
+            ]
+        },
+        "1": {
+            "node_id": 3,
+            "ost_step": "### Step 1: **Defining High-Level Structure for `encode()` and `decode()` (Action 1)**\n\nIn this first step, we define the overall structure of both the `encode()` and `decode()` functions. The goal of the `encode()` function is to replace vowels in the string with their respective numbers, while the `decode()` function will reverse this process, converting numbers back into the corresponding vowels.\n\n#### Plan for `encode()`:\n1. Loop through each character in the input string.\n2. For each lowercase vowel (`a`, `e`, `i`, `o`, `u`), replace it with the corresponding number (`a -> 1`, `e -> 2`, etc.).\n3. Keep all other characters (non-vowels) unchanged.\n\n#### Plan for `decode()`:\n1. Loop through each character in the input string.\n2. For each number (`1`, `2`, `3`, `4`, `5`), replace it with the corresponding vowel (`1 -> a`, `2 -> e`, etc.).\n3. Keep all other characters (non-numeric) unchanged.\n\n#### Pseudocode:\n```pseudo\nFunction encode(string):\n    Initialize a dictionary for vowel to number mappings\n    Initialize an empty string for the result\n    For each character in the string:\n        If the character is a vowel:\n            Append the corresponding number to the result\n        Else:\n            Append the character as is\n    Return the result string\n\nFunction decode(string):\n    Initialize a dictionary for number to vowel mappings\n    Initialize an empty string for the result\n    For each character in the string:\n        If the character is a number:\n            Append the corresponding vowel to the result\n        Else:\n            Append the character as is\n    Return the result string\n```\n\n",
+            "step_value": 1.0,
+            "edges": [
+                0,
+                3
+            ]
+        },
+        "0": {
+            "node_id": 0,
+            "question": "**Step 1:** Create a function called `encode()` to replace all the lowercase vowels in a given string with numbers according to the following pattern:\n```\na -> 1\ne -> 2\ni -> 3\no -> 4\nu -> 5\n```\n\nFor example, `encode(\"hello\")` would return `\"h2ll4\"`. There is no need to worry about uppercase vowels in this kata.\n\n**Step 2:** Now create a function called `decode()` to turn the numbers back into vowels according to the same pattern shown above.\n\nFor example, `decode(\"h3 th2r2\")` would return `\"hi there\"`.\n\nFor the sake of simplicity, you can assume that any numbers passed into the function will correspond to vowels."
+        }
+    },
+    {
+        "4": {
+            "node_id": 28,
+            "ost_step": "### Step 4: **Generating Python Code for `encode()` and `decode()` (Action 3)**\n\nNow, we implement the refined `encode()` and `decode()` functions in Python. These functions will transform the input string according to the specified patterns.\n\n#### Python Code:\n\n```python\ndef encode(string):\n    # Dictionary to map vowels to numbers\n    vowel_to_number = {'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5'}\n    encoded_string = \"\"\n    \n    # Iterate through each character in the input string\n    for char in string:\n        if char in vowel_to_number:\n            encoded_string += vowel_to_number[char]  # Replace vowel with corresponding number\n        else:\n            encoded_string += char  # Keep non-vowel characters unchanged\n    \n    return encoded_string\n\ndef decode(string):\n    # Dictionary to map numbers back to vowels\n    number_to_vowel = {'1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u'}\n    decoded_string = \"\"\n    \n    # Iterate through each character in the input string\n    for char in string:\n        if char in number_to_vowel:\n            decoded_string += number_to_vowel[char]  # Replace number with corresponding vowel\n        else:\n            decoded_string += char  # Keep non-number characters unchanged\n    \n    return decoded_string\n\n# Test the functions\nencoded = encode(\"hello\")\nprint(\"Encoded:\", encoded)  # Expected output: \"h2ll4\"\n\ndecoded = decode(\"h3 th2r2\")\nprint(\"Decoded:\", decoded)  # Expected output: \"hi there\"\n```\n\n#### Explanation:\n1. **`encode()` Function:**\n   - The `vowel_to_number` dictionary is used to map each lowercase vowel to a corresponding number.\n   - The function loops through each character in the input string. If it’s a vowel, it is replaced by its corresponding number. Non-vowel characters remain unchanged.\n   \n2. **`decode()` Function:**\n   - The `number_to_vowel` dictionary maps each number to its corresponding vowel.\n   - The function loops through the input string, replacing any numbers with the appropriate vowels. Non-numeric characters are added to the result unchanged.\n\n#### Output:\nFor the input:\n```\nhello\nh3 th2r2\n```\nThe expected outputs are:\n```\nEncoded: h2ll4\nDecoded: hi there\n```\nThis final step completes the implementation, with the functions working as expected.",
+            "step_value": 1.0,
+            "edges": [
+                27,
+                28
+            ]
+        },
+        "3": {
+            "node_id": 27,
+            "ost_step": "### Step 3: **Refine the `decode()` Function (Action 2)**\n\nIn this step, we refine the pseudocode for the `decode()` function. This involves detailing the logic to convert numbers back into their respective vowels using a dictionary, building the decoded result string.\n\n#### Goals:\n1. Use a dictionary to map each number back to its corresponding vowel.\n2. Iterate over each character in the input string.\n3. Construct the decoded string by checking if a character is a number and replacing it, or leaving it unchanged.\n\n#### Pseudocode:\n```pseudo\nFunction decode(string):\n    Initialize a dictionary: number_to_vowel = {'1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u'}\n    Initialize an empty string: decoded_string = \"\"\n    \n    For each character in the string:\n        If character is in number_to_vowel:\n            Append number_to_vowel[character] to decoded_string\n        Else:\n            Append character to decoded_string\n\n    Return decoded_string\n```\n\n#### Explanation:\n- We start by initializing a dictionary `number_to_vowel` that maps each number back to its corresponding vowel.\n- We iterate through each character of the input string. If the character is a number (found in our dictionary), we append its corresponding vowel to the result string `decoded_string`.\n- If the character is not a number, we simply append it unchanged to `decoded_string`.\n- Finally, we return the `decoded_string` which has all numbers replaced with their vowel counterparts.\n\nThis step ensures that the `decode()` function is properly structured and ready to be translated into actual Python code.",
+            "step_value": 1.0,
+            "edges": [
+                6,
+                27
+            ]
+        },
+        "2": {
+            "node_id": 6,
+            "ost_step": "### Step 2: **Refine the `encode()` Function (Action 2)**\n\nIn this step, we will refine the pseudocode for the `encode()` function by detailing how to handle each character in the input string and map vowels to numbers. This includes the implementation of the dictionary to store the vowel-number mappings and the logic to build the encoded string.\n\n#### Goals:\n1. Use a dictionary to map each vowel to its corresponding number.\n2. Iterate over each character in the input string.\n3. Build the encoded result by checking if a character is a vowel and replacing it, or leaving it unchanged.\n\n#### Pseudocode:\n```pseudo\nFunction encode(string):\n    Initialize a dictionary: vowel_to_number = {'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5'}\n    Initialize an empty string: encoded_string = \"\"\n    \n    For each character in the string:\n        If character is in vowel_to_number:\n            Append vowel_to_number[character] to encoded_string\n        Else:\n            Append character to encoded_string\n\n    Return encoded_string\n```\n\n#### Explanation:\n- We initialize a dictionary `vowel_to_number` to map each lowercase vowel to a specific number.\n- We iterate through each character of the input string. If the character is a vowel (found in our dictionary), we append its corresponding number to the result string `encoded_string`.\n- If the character is not a vowel, we simply append it unchanged to `encoded_string`.\n- Finally, we return the `encoded_string` which now has all vowels replaced with their numeric counterparts.",
+            "step_value": 1.0,
+            "edges": [
+                3,
+                6
+            ]
+        },
+        "1": {
+            "node_id": 3,
+            "ost_step": "### Step 1: **Defining High-Level Structure for `encode()` and `decode()` (Action 1)**\n\nIn this first step, we define the overall structure of both the `encode()` and `decode()` functions. The goal of the `encode()` function is to replace vowels in the string with their respective numbers, while the `decode()` function will reverse this process, converting numbers back into the corresponding vowels.\n\n#### Plan for `encode()`:\n1. Loop through each character in the input string.\n2. For each lowercase vowel (`a`, `e`, `i`, `o`, `u`), replace it with the corresponding number (`a -> 1`, `e -> 2`, etc.).\n3. Keep all other characters (non-vowels) unchanged.\n\n#### Plan for `decode()`:\n1. Loop through each character in the input string.\n2. For each number (`1`, `2`, `3`, `4`, `5`), replace it with the corresponding vowel (`1 -> a`, `2 -> e`, etc.).\n3. Keep all other characters (non-numeric) unchanged.\n\n#### Pseudocode:\n```pseudo\nFunction encode(string):\n    Initialize a dictionary for vowel to number mappings\n    Initialize an empty string for the result\n    For each character in the string:\n        If the character is a vowel:\n            Append the corresponding number to the result\n        Else:\n            Append the character as is\n    Return the result string\n\nFunction decode(string):\n    Initialize a dictionary for number to vowel mappings\n    Initialize an empty string for the result\n    For each character in the string:\n        If the character is a number:\n            Append the corresponding vowel to the result\n        Else:\n            Append the character as is\n    Return the result string\n```\n\n",
+            "step_value": 1.0,
+            "edges": [
+                0,
+                3
+            ]
+        },
+        "0": {
+            "node_id": 0,
+            "question": "**Step 1:** Create a function called `encode()` to replace all the lowercase vowels in a given string with numbers according to the following pattern:\n```\na -> 1\ne -> 2\ni -> 3\no -> 4\nu -> 5\n```\n\nFor example, `encode(\"hello\")` would return `\"h2ll4\"`. There is no need to worry about uppercase vowels in this kata.\n\n**Step 2:** Now create a function called `decode()` to turn the numbers back into vowels according to the same pattern shown above.\n\nFor example, `decode(\"h3 th2r2\")` would return `\"hi there\"`.\n\nFor the sake of simplicity, you can assume that any numbers passed into the function will correspond to vowels."
+        }
+    }
+]

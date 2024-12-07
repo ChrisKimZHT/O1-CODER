@@ -1,0 +1,52 @@
+[
+    {
+        "question": "In a galaxy far, far away, the Empire has launched a series of attacks using their powerful weapon, the Death Star. To counter this threat, the Rebel Alliance has decided to arm themselves with the legendary Lightsabers of the Jedi. Each Lightsaber has a certain power, and the sum of the powers of the Lightsabers will determine the strength of the Alliance's defense. You, as a strategist, must calculate the sum of the powers of the Lightsabers provided by your Jedi allies to ensure the best possible defense against the Empire's onslaught.\n\nInput:\nThe first line contains an integer T, representing the number of sets of Lightsabers. Each set is described in the following lines. The first number in each set is an integer n, representing the number of Lightsabers in that set, followed by n space-separated integers, each representing the power of a Lightsaber.\n\nOutput:\nFor each set of Lightsabers, calculate and print the sum of their powers. If there is no Lightsaber in a set, print 0 for that set.\n\nConstraints:\n1 ≤ T ≤ 10^6,\n0 ≤ n ≤ 10^6,\n0 ≤ power of each Lightsaber ≤ 10^9.\n\nSAMPLE INPUT\n2\n3 1 2 3\n4 10 20 30 40\n\nSAMPLE OUTPUT\n6\n100",
+        "solutions": [],
+        "starter_code": "",
+        "input_output": {
+            "inputs": [
+                "1\n2\n1 2",
+                "2\n3\n1 2 3\n2\n4 5",
+                "1\n4\n0 0 0 0",
+                "3\n2\n10 20\n2\n30 40\n2\n50 60",
+                "1\n5\n7 8 9 10 11",
+                "2\n1\n100\n3\n1 1 1",
+                "1\n2\n-1 1",
+                "1\n10\n1 2 3 4 5 6 7 8 9 10",
+                "2\n4\n1 1 1 1\n4\n2 2 2 2",
+                "1\n3\n0 0 0",
+                "2\n5\n11 22 33 44 55\n5\n66 77 88 99 100",
+                "1\n1\n1000000000",
+                "2\n2\n-5 5\n3\n-10 0 10"
+            ],
+            "outputs": [
+                "3",
+                "6\n9",
+                "0",
+                "30\n70\n110",
+                "45",
+                "100\n3",
+                "0",
+                "55",
+                "4\n8",
+                "0",
+                "165\n430",
+                "1000000000",
+                "0\n0"
+            ]
+        },
+        "difficulty": "EASY",
+        "raw_tags": "['Algorithms', 'ad-hoc', 'Constructive']",
+        "name": null,
+        "source": "codechef",
+        "tags": "['Constructive algorithms', 'Ad-hoc']",
+        "skill_types": [],
+        "url": "https://www.codechef.com/problems/RRJOKE",
+        "Expected Auxiliary Space": null,
+        "time_limit": "1 seconds",
+        "date": "2014-12-18",
+        "picture_num": 0,
+        "memory_limit": "50000 bytes",
+        "Expected Time Complexity": null
+    }
+]
