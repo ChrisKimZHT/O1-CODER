@@ -34,9 +34,9 @@ These methods work in an iterative cycle, continuously refining the model to imp
 
 ### Planned Updates
 
-TODO: Reinforcement Learning code
+TODO: Reinforcement Learning code, Curated datasets and derived models
 
-TODO: Curated datasets and derived models
+TODO: **Reinforcement Fine-Tuning (RFT) Version of O1-Coder** Due to the characteristics of the test case generator, O1-Coder can generate diverse process supervision data with only a small amount of ground truth code. Therefore, in the RFT version, we will skip the use of CoT data for initializing the policy model.
 
 ---
 
