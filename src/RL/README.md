@@ -10,7 +10,7 @@ The core component of this project is `RewardAggregater`, which supports flexibl
 - `alpha` function (time decay factor)
 - `gamma` (discount factor)
 
-This tool can compute **intermediate rewards** and **final rewards** based on different model outputs (e.g., inference steps of language generation models) and supports offline processing.
+This tool can compute **intermediate rewards** and **outcome rewards** based on different model outputs.
 
 ## Usage
 
