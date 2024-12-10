@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This project provides an **offline reward update** method, which is suitable for reward annotation tasks in reinforcement learning, especially for reward updates in methods like Iterative DPO.
+This project provides an offline reward update method, which is suitable for reward annotation tasks in reinforcement learning, especially for reward updates in methods like Iterative DPO.
 
 The core component of this project is `RewardAggregater`, which supports flexible configuration of the following parameters:
 
