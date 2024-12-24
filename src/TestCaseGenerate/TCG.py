@@ -27,6 +27,7 @@ import multiprocessing
 
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
+os.environ["WANDB_MODE"] = "offline"
 
 def get_args():
     parser = argparse.ArgumentParser()
@@ -48,7 +49,7 @@ def get_args():
     parser.add_argument("--output_dir", type=str, default="finetune_deepseek1.3_instruct_o1_format_SFT")
     parser.add_argument("--num_proc", type=int, default=None)
 
-    parser.add_argument("--model_path", type=str, default="/data/FastSSD/LLM_Models/deepseek-coder-1.3b-instruct/")
+    parser.add_argument("--model_path", type=str, default="/home/chriskim/deepseek-coder-1.3b-instruct")
     return parser.parse_args()
 
 def build_test_part(A, B):

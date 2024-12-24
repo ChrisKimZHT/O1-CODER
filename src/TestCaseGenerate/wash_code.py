@@ -100,8 +100,8 @@ if __name__ == "__main__":
     can_use_case = []
     can_use_case_all_pass = []
     pass_rate = []
-    ds = load_dataset("/data/FastSSD/LLM_Models/TACO")
-    Pbar = tqdm.tqdm(ds['train'])    
+    ds = load_dataset("/home/chriskim/TACO")
+    Pbar = tqdm.tqdm(ds['test'])
     for item in Pbar:
         if eval(item['solutions']) == []:
             continue
@@ -126,5 +126,5 @@ if __name__ == "__main__":
             can_use_case.append(item)
         Pbar.set_description(f"Avg Pass: {np.mean(pass_rate)}, All Pass: {np.mean(np.array(pass_rate) == 1.)}, Current: {current_pass_rate}")
 
-json.dump(can_use_case, open("/home/xukaiyuan/Project/TreeSearch_Code/wash_code/select_data_train_can_use.json", 'w'))
-json.dump(can_use_case_all_pass, open("/home/xukaiyuan/Project/TreeSearch_Code/wash_code/select_data_train_all_pass.json", 'w'))
+json.dump(can_use_case, open("./select_data_train_can_use.json", 'w'))
+json.dump(can_use_case_all_pass, open("./select_data_train_all_pass.json", 'w'))
