@@ -3,6 +3,7 @@ src/TestCaseGenerate/finetune_deepseek1.3_instruct_o1_format_SFT
 src/TestCaseGenerate/wandb
 src/TestCaseGenerate/*.json
 src/mcts/data/TACO/*.json
+src/mcts/run_outputs/TACO
 
 ### Python template
 # Byte-compiled / optimized / DLL files
