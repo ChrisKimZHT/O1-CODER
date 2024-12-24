@@ -6,10 +6,8 @@ from tqdm import tqdm
 import concurrent.futures
 from openai import OpenAI
 
-client = AzureOpenAI(
-    api_version="",
-    azure_endpoint=os.environ.get("AZURE_OPENAI_ENDPOINT", ""),
-    api_key=os.environ.get("AZURE_OPENAI_API_KEY", ""),
+client = OpenAI(
+    api_key=os.environ.get("OPENAI_API_KEY", ""),
 )
 
 max_threads = 32
@@ -34,7 +32,7 @@ def generate_with_OpenAI_model(
         "model": model_ckpt,
         "temperature": temperature,
         "max_tokens": max_tokens,
-        "max_completion_tokens": max_completion_tokens,
+        # "max_completion_tokens": max_completion_tokens,
         "top_p": top_p,
         "stop": stop,
         "seed": 1,
